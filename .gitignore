@@ -1,0 +1,17 @@
+/target/
+*.pyc
+__pycache__/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Lokale Werkzeuge und Testartefakte
+.claude/
+.tokensave/
+.serena/
+.env
+*.png
+*.mp4

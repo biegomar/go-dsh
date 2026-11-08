@@ -1,0 +1,55 @@
+[package]
+name = "go-dsh"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+description = "Agent-first CLI to run DeepSeek Harness (dsh) sessions in parallel: research batches, material gathering, live in the DSH web UI. For Windows, macOS and Linux."
+license = "MIT"
+repository = "https://github.com/biegomar/go-dsh"
+homepage = "https://github.com/biegomar/go-dsh"
+readme = "README.md"
+keywords = ["deepseek", "dsh", "ai-agents", "cli", "orchestration"]
+categories = ["command-line-utilities"]
+
+[lib]
+name = "go_dsh"
+path = "src/lib.rs"
+
+[[bin]]
+name = "go-dsh"
+path = "src/main.rs"
+
+[[bin]]
+name = "dshgo"
+path = "src/bin/dshgo.rs"
+
+[dependencies]
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+clap = { version = "4", features = ["derive"] }
+ctrlc = { version = "3", features = ["termination"] }
+rand = "0.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+serde_yaml = "0.9"
+ureq = { version = "2", default-features = false, features = ["json"] }
+url = "2"
+uuid = { version = "1", features = ["v4"] }
+which = "6"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = ["Win32_Foundation", "Win32_System_Threading", "Win32_System_Console"] }
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+
+[[example]]
+name = "fake-dsh"
+path = "examples/fake_dsh.rs"
+
+[dev-dependencies]
+tempfile = "3"

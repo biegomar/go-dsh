@@ -2,6 +2,8 @@
 
 **English** | [Deutsch](README.de.md)
 
+[![CI](https://github.com/biegomar/go-dsh/actions/workflows/ci.yml/badge.svg)](https://github.com/biegomar/go-dsh/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 **Let Claude Code, Codex, OpenCode, Pi or any other agent use [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (`dsh`) as a parallel worker pool – as a single, fast Rust binary for Windows, macOS and Linux.**
 
 go-dsh is a Rust reimplementation of [dsh-cli](https://github.com/nicremo/dsh-cli) (an npm package, macOS/Linux only). Commands, options, exit codes and JSON output follow the original; on top of that it adds Windows support and needs no Node.js for the tool itself.

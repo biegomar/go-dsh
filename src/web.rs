@@ -465,6 +465,7 @@ pub fn listener_pids(port: u16) -> Vec<u32> {
 
 /// Parse `netstat -ano` output. The state column is localized ("LISTENING", "ABHÖREN", ...), so a
 /// listener is recognized by its foreign address (`0.0.0.0:0`, `[::]:0`) instead.
+#[cfg(any(windows, test))]
 fn parse_netstat(text: &str, port: u16) -> Vec<u32> {
     let suffix = format!(":{port}");
     text.lines()
